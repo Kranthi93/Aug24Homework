@@ -1,0 +1,252 @@
+OperatorPrecedence inJS::
+
+operator precedence describes the order of operations in which an expression is evaluated (Or),it gives us an idea of how an expression has
+to be evaluated.Operations which has heigher precedence are evaluated before the operations with lower precedence.For example Multiplication operation has heigher
+precedence than the addition operation.So when evaluating an expression which has both *,+ opearators .,multiplication has to be performed before the addition operation.
+In order to alter the order of precedence we use paranthesis.The expression in the paranthesis is evaluated before we use it's value in the remainder expression.
+
+Examples::
+1))        var exp=6%3+7;
+           document.write(exp);
+           var exp1=(6+3)*7;
+           document.write(exp1);
+           var exp2=6+3*7;
+           document.write(exp2);
+Output:: 9 63 27
+
+
+
+2))var num = 10;
+
+if(5 == num / 2 && (2 + 2 * num).toString() === "22") {
+    document.write(true);
+}
+      
+operators are::
+==,/,&&,(),.,===   
+
+.,() has same precedence so evaaluation should be from left to right ,that gives us the answer"22" {{(2+2*num)=22,(2 + 2 * num).toString()=="22"}}
+/ is the next heigher precedence operation which results in 5{{num/2=5}}
+==,=== has the same precedence
+== is the next operator that is to be evaluated according to the preedence order {{5==5 results boolean value True}}
+===is the next operator and it {{(2 + 2 * num).toString() === "22" results in the boolean value True}}
+lastly && {{True&&True results in True}}
+hence the statement in if loop is executed.
+
+Reference::https://msdn.microsoft.com
+
+Operator Associativity in JS::
+
+Expression evaluation is influenced by the operator associativity.It gives us an idea on which operation has to be evaluated first when two or more operators have the 
+same precedence order.
+*=, /=, %=, +=,, -=, <<=, >>=, >>>=, &=, ^=, |= all these operators have same precedence, when they appear in the same expression they are evaluated from right to left.
+Like wise --,++,delete,new,bitwise NOT(~),logical NOT(!),type of,negattion,void have the same precedence,when they appear in the same expression they are evaluated 
+from right to left.
+(),.,[] has the same precedence.In an expression they are evaluated from left to right.
+/,*,% has the same precedence.In an expression they are evaluated from left to right.
++,-,string concatination(+) has same precedence.In an expression they are evaluated from left to right.
+<<,>>(bitwise left and right) has same precedence.In an expression they are evaluated from left to right.
+>=,>,<=,< has same precedence.In an expression they are evaluated from left to right.
+==,!=,===,!== has same precedence.When appear in the same expression they are evaluated from left to right.
+
+Reference::http://www.scriptingmaster.com/javascript/operator-precedence.asp
+           http://docs.w3cub.com/
+
+
+
+Question 2::
+ 
+Equal (==)::Returns true if the operands are equal.
+Strict equal (===)::Returns true if the operands are equal and of the same type.
+
+Examples::1)var var1 = 3;
+          3==var1 returns True
+          '3'==var1 returns True
+          '3'===var1 returns False as var1 is not a string though it holds the value 3.
+
+The == perator applies many coercions to both sides if they are not the same type before testing the equality.
+(ex:converts the operands to the same type before making the comparison.)
+("" == false) returns True.
+The === operator (and the == operator as well) treats the number values -0 and +0 .
+
+==,===,!==,!= have the same precedence.
+
+
+Two strings are "strictly" equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
+Two numbers are strictly equal when they are numerically equal (have the same number value).
+NaN is not equal to anything, including NaN. 
+
+Ex::(-0==+0)&&(-0===+0) returns True.
+
+Two distinct objects are never equal for either strict or abstract comparisons.
+An expression comparing Objects is only true if the operands reference the same Object.
+Ex::
+var object1 = {"value":"key"}, object2={"value":"key"};
+object1 === object2 //false
+
+Null and Undefined Types are strictly equal to themselves and abstractly equal to each other.
+
+Inequality (!=)::
+
+The inequality operator returns true if the operands are not equal. If the two operands are not of the same type,JavaScript attempts to convert the operands to an 
+appropriate type for the comparison.If both operands are objects, then JavaScript compares internal references ,if they refer to different objects the comparision 
+returns true.If the two objects refer to same one then the comparision returns False.
+objects in memory.
+
+Non-identity / strict inequality (!==)::
+
+The non-identity operator returns true if the operands are not equal and/or not of the same type.
+
+
+
+Reference::https://developer.mozilla.org
+           http://www.c-point.com/javascript_tutorial/jsgrpComparison.htm
+           https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+
+Question 3::
+
+null::
+
+null ,undefined are both primitive types of JS.
+syntax:null 
+null represents the obsence of an object where it is expected.when checking for null or undefined ,we have to be aware of the difference between the operators ==,=== .
+
+Undefined::
+undefined is a property of the global object, i.e. it is a variable in global scope. The initial value of undefined is the primitive value undefined.
+A function returns undefined if a value was not returned.
+(i.e a method or statement returns undefined if the variable that is being evaluated does not have an assigned value.)
+While it is possible to use it as an identifier (variable name) in any scope other than the global scope (because undefined is not a reserved word),doing so is a very 
+bad idea that will make your code difficult to maintain and debug.
+
+Differences between null and undefined::
+
+undefined is a type itself (undefined) while null is an object.
+
+typeof null        // object 
+typeof undefined   // undefined
+null === undefined // false
+null  == undefined // true
+Examples::
+1)
+var x;
+if (typeof x === 'undefined') {
+   // these statements execute
+}
+2)
+var x;
+if (x === 'undefined') {
+   // these statements execute
+}
+
+here it is important to use === insteadof ==  as"==" will also checks even if x is null.In order to avoid that and to make sure that the if statement is executed
+only if var x is undefined and its type is undefined.
+
+References:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
+https://msdn.microsoft.com
+w3schhols.com
+
+
+Question 4::
+loop (for, while and do while) and conditons (if else, switch)
+
+LOOPS::
+
+for - loops through a block of code a number of times
+for/in - loops through the properties of an object
+while - loops through a block of code while a specified condition is true
+do/while - also loops through a block of code while a specified condition is true
+FOR::
+syntax:
+for (statement 1; statement 2; statement 3) {
+    code block to be executed
+}
+statement 1 is to initialize the variable used in the loop (i = 0).This is not always the case, JavaScript doesn't care. Statement 1 is optional.
+we can initiate many values in statement 1 (separated by comma).
+statement 3 increments the value of the initial variable.It is also optional.
+If we want to omit statement 2, we have to provide a break inside the loop. Otherwise the loop will never end. This will crash the browser.
+Examples of FOR loops::
+for in loop:The JavaScript for/in statement loops through the properties of an object:
+var person = {fname:"John", lname:"Doe", age:25}; 
+
+var text = "";
+var x;
+for (x in person) {
+    text += person[x];
+}
+
+var i = 0;
+var len = cars.length;
+for (; i < len; ) { 
+    text += cars[i] + "<br>";
+    i++;
+}
+
+WHILE and DO-WHILE::
+The while loop loops through a block of code as long as a specified condition is true.
+The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true,then it will repeat the loop as
+long as the condition is true.
+Example::
+1)do {
+    text += "The number is " + i;
+    i++;
+}
+while (i < 10);
+
+2)while (i < 10) {
+    text += "The number is " + i;
+    i++;
+}
+
+we use if to specify a block of code to be executed, if a specified condition is true.
+we use else to specify a block of code to be executed, if the same condition is false.
+we use else if to specify a new condition to test, if the first condition is false.
+we use switch to specify many alternative blocks of code to be executed.
+
+if is in lowercase letters.
+syntax::
+if (condition1) {
+    block of code to be executed if condition1 is true
+} else if (condition2) {
+    block of code to be executed if the condition1 is false and condition2 is true
+} else {
+    block of code to be executed if the condition1 is false and condition2 is false
+}
+Use the switch statement to select one of many blocks of code to be executed.
+
+Syntax
+switch(expression) {
+    case n:
+        code block
+        break;
+    case n:
+        code block
+        break;
+    default:
+        default code block
+}
+This is how it works:
+
+The switch expression is evaluated once.
+The value of the expression is compared with the values of each case.
+If there is a match, the associated block of code is executed.
+When JavaScript reaches a break keyword, it breaks out of the switch block.
+
+This will stop the execution of more code and case testing inside the block.
+The default keyword specifies the code to run if there is no case match
+
+example:switch (new Date().getDay()) {
+    case 6:
+        text = "Today is Saturday";
+        break; 
+    case 0:
+        text = "Today is Sunday";
+        break; 
+    default: 
+        text = "Looking forward to the Weekend";
+}
+
+
+
+
