@@ -1,0 +1,136 @@
+1) Practice all the selectors
+	document.getElementsByTagName
+	document.getElementById
+	document.getElementsByClassName
+	document.querySelectorAll
+
+2) event listener .addEventListener, 
+
+http://www.w3schools.com/jsref/dom_obj_event.asp
+
+The getElementsByTagName() method returns a collection of all elements in the document with the specified tag name, as a NodeList object.
+
+The NodeList object represents a collection of nodes. The nodes can be accessed by index numbers. The index starts at 0.
+
+syntax::document.getElementsByTagName(tagname);
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>An unordered list:</p>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<p>Click the button to display the innerHTML of the second li element (index 1).</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementsByTagName("LI");
+    document.getElementById("demo").innerHTML = x[1].innerHTML;
+}
+
+
+The getElementById() method returns the element that has the ID attribute with the specified value.
+
+This method is one of the most common methods in the HTML DOM, and is used almost every time you want to manipulate, or get info from, an element on your document.
+
+Returns null if no elements with the specified ID exists.
+
+An ID should be unique within a page. However, if more than one element with the specified ID exists, the getElementById() method returns the first element in the source code
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Click the button to change the text in this paragraph.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+
+</body>
+</html>
+</script>
+
+</body>
+</html>
+The getElementsByClassName() method returns a collection of all elements in the document with the specified class name, as a NodeList object.
+
+The NodeList object represents a collection of nodes. The nodes can be accessed by index numbers. The index starts at 0.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="example">First div element with class="example".</div>
+
+<div class="example">Second div element with class="example".</div>
+
+<p>Click the button to change the text of the first div element with class="example" (index 0).</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> The getElementsByClassName() method is not supported in Internet Explorer 8 and earlier versions.</p>
+
+<script>
+function myFunction() {
+    var x = document.getElementsByClassName("example");
+    x[0].innerHTML = "Hello World!";
+}
+</script>
+
+</body>
+</html>
+Returns a list of the elements within the document (using depth-first pre-order traversal of the document's nodes) that match the specified group of selectors. The object returned is a NodeList.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 class="example">A heading with class="example"</h2>
+<p class="example">A paragraph with class="example".</p> 
+
+<p>Click the button to add a background color to the first element in the document with class="example" (index 0).</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> The querySelectorAll() method is not supported in Internet Explorer 8 and earlier versions.</p>
+
+<script>
+function myFunction() {
+    var x = document.querySelectorAll(".example");
+    x[0].style.backgroundColor = "red";
+}
+</script>
+
+</body>
+</html>
+Note: The querySelectorAll() method is not supported in Internet Explorer 8 and earlier versions.
+
+The EventTarget.addEventListener() method registers the specified listener on the EventTarget it's called on. The event target may be an Element in a document, the Document itself, a Window, or any other object that supports events (such as XMLHttpRequest).
+// Function to change the content of t2
+function modifyText() {
+  var t2 = document.getElementById("t2");
+  if (t2.firstChild.nodeValue == "three") {
+    t2.firstChild.nodeValue = "two";
+  } else {
+    t2.firstChild.nodeValue = "three";
+  }
+}
+
+// add event listener to table
+var el = document.getElementById("outside");
+el.addEventListener("click", modifyText, false);
+
